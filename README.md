@@ -1,107 +1,151 @@
-🧮 Cálculo de IMC em Java (Pessoa e Atleta)
+🏃‍♂️ Sistema de Cálculo de IMC - Versão Atletas
 
-Este projeto em Java demonstra conceitos fundamentais de Programação Orientada a Objetos (POO) como herança, polimorfismo, encapsulamento e sobrescrita de métodos, utilizando o cálculo de IMC (Índice de Massa Corporal) como exemplo prático.
+<p align="center">
+<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java Badge">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge">
+  <img src="https://img.shields.io/badge/POO-Conceitos-blue?style=for-the-badge" alt="POO Badge">
+</p>
 
-A aplicação possui duas classes principais (Pessoa e Atleta) e uma classe executável (imc) responsável por testar o funcionamento do sistema.
 
-📌 Sobre o Projeto
 
-O sistema permite:
 
-Criar uma pessoa comum e calcular seu IMC
+📝 Sobre o Projeto
 
-Criar um atleta (que herda de pessoa)
+Este projeto consiste em uma aplicação Java simples, porém robusta, desenvolvida para demonstrar conceitos fundamentais de Programação Orientada a Objetos (POO ). O sistema realiza o cálculo do Índice de Massa Corporal (IMC) de indivíduos, diferenciando o cálculo entre uma pessoa comum e um atleta profissional.
 
-Aplicar uma regra diferenciada de cálculo de IMC para atletas
+A principal característica deste projeto é a aplicação prática de Herança e Polimorfismo, onde a classe Atleta estende as funcionalidades da classe Pessoa, aplicando uma lógica de cálculo específica para o perfil esportivo.
 
-Demonstrar polimorfismo utilizando referência do tipo Pessoa
 
-🏗 Estrutura das Classes
-👤 Classe Pessoa
 
-Representa uma pessoa com os seguintes atributos:
 
-nome
+🚀 Tecnologias e Conceitos
 
-idade
+Abaixo estão as principais ferramentas e pilares da POO utilizados no desenvolvimento deste sistema:
 
-peso
+Categoria
+Tecnologia / Conceito
+Descrição
+Linguagem
+Java
+Linguagem principal utilizada para a lógica do sistema.
+Herança
+extends
+A classe Atleta herda atributos e métodos da classe Pessoa.
+Polimorfismo
+Sobrescrita
+O método calcularIMC() é sobrescrito para aplicar um fator de correção.
+Encapsulamento
+Getters/Setters
+Proteção e acesso controlado aos atributos das classes.
 
-altura
 
-Principais métodos:
 
-calcularIMC() → Calcula o IMC com a fórmula:
 
-IMC = peso / (altura * altura)
 
-mostrarDetalhes() → Exibe todas as informações da pessoa, incluindo o IMC
 
-Getters e Setters para controle dos atributos (encapsulamento)
 
-🏃 Classe Atleta
+🏗️ Estrutura do Código
 
-A classe Atleta herda de Pessoa:
+O projeto está dividido em três componentes principais, cada um com uma responsabilidade específica:
 
-public class Atleta extends Pessoa
+1. Classe Pessoa
 
-Ela adiciona:
+É a classe base (superclasse) que contém os dados biométricos fundamentais.
 
-esportePraticado
+•
+Atributos: Nome, Idade, Peso e Altura.
 
-Além disso, sobrescreve o método calcularIMC(), aplicando um ajuste de 5% no valor final:
+•
+Método Principal: calcularIMC() — Fórmula padrão: $Peso / (Altura \times Altura)$.
 
-return imc * 0.95;
+2. Classe Atleta
 
-Esse ajuste simula uma diferença no cálculo considerando a composição corporal do atleta.
+Subclasse que herda de Pessoa e introduz especializações.
 
-🖥 Classe imc (Main)
+•
+Atributo Adicional: esportePraticado.
 
-Responsável por executar o programa.
+•
+Diferencial: Sobrescreve o método calcularIMC() aplicando um redutor de 5% ($IMC \times 0.95$), considerando que atletas possuem maior densidade muscular.
 
-No main, são criados:
+3. Classe imc (Main)
 
-Um objeto Pessoa
+Responsável pela execução do programa e demonstração do polimorfismo.
 
-Um objeto Atleta, utilizando referência do tipo Pessoa
+•
+Instancia objetos do tipo Pessoa e Atleta.
 
-Pessoa atleta = new Atleta("Carlos", 75.0, 1.80, "Natação");
+•
+Demonstra como um objeto Atleta pode ser referenciado como uma Pessoa.
 
-Aqui ocorre polimorfismo, pois mesmo a referência sendo do tipo Pessoa, o método sobrescrito em Atleta será executado automaticamente.
 
-🎯 Conceitos Aplicados
 
-Herança → Atleta herda atributos e comportamentos de Pessoa
 
-Polimorfismo → O método sobrescrito é chamado mesmo com referência da superclasse
+💻 Exemplo de Execução
 
-Encapsulamento → Atributos privados com acesso controlado por getters e setters
+Ao executar a classe principal, o sistema gera a seguinte saída no console:
 
-Sobrescrita de método (Override) → Alteração do comportamento do cálculo de IMC na subclasse
+Plain Text
 
-▶️ Exemplo de Saída
+
 ----- Pessoa -----
 Nome: Mateus
 Idade: 19
 Peso: 83.0 kg
 Altura: 1.83 m
-IMC: 24.78
+IMC: 24.78425751739377
 
 ----- Atleta -----
 Nome: Carlos
 Idade: 22
 Peso: 75.0 kg
 Altura: 1.8 m
-IMC: 21.99
-🚀 Como Executar
+IMC: 21.99074074074074
+Esporte praticado: Natação
 
+
+
+
+
+
+⚙️ Como Executar
+
+Para rodar este projeto localmente, siga os passos abaixo:
+
+1.
+Certifique-se de ter o JDK (Java Development Kit) instalado em sua máquina.
+
+2.
+Clone este repositório ou copie os arquivos .java.
+
+3.
 Compile os arquivos:
 
-javac Pessoa.java Atleta.java imc.java
+Bash
 
-Execute o programa:
+
+javac *.java
+
+
+
+
+
+4.
+Execute a classe principal:
+
+Bash
+
 
 java imc
-📚 Objetivo
 
-Este projeto foi desenvolvido com fins educacionais para praticar conceitos de orientação a objetos em Java, reforçando a relação entre superclasse e subclasse, uso de super, e comportamento polimórfico.
+
+
+
+
+
+
+
+✒️ Autor
+
+Projeto desenvolvido como exemplo prático de estudos em Java.
+
